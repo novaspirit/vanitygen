@@ -769,7 +769,7 @@ get_prefix_ranges(int addrtype, const char *pfx, BIGNUM **result,
 		}
 		b58ceil = BN_get_word(bnap);
 
-		if ((b58pow - (p - zero_prefix)) < 6) {
+		if ((b58pow - (p - zero_prefix)) <= 0) {
 			/*
 			 * Do not allow the prefix to constrain the
 			 * check value, this is ridiculous.

@@ -56,11 +56,9 @@ usage(const char *name)
 "-q            Quiet output\n"
 "-i            Case-insensitive prefix search\n"
 "-k            Keep pattern and continue search after finding a match\n"
-<<<<<<< HEAD
 "-1            Stop after first match\n"
-=======
 "-L            Generate litecoin address\n"
->>>>>>> 5f7e6be... Add -L option to generate litecoin address
+"-Z            Generate Zetacoin address\n"
 "-N            Generate namecoin address\n"
 "-T            Generate bitcoin testnet address\n"
 "-X <version>  Generate address with the given version\n"
@@ -127,7 +125,7 @@ main(int argc, char **argv)
 	int i;
 
 	while ((opt = getopt(argc, argv,
-			     "vqrikLNTX:eE:p:P:d:w:t:g:b:VSh?f:o:s:D:")) != -1) {
+			     "vqrikLZNTX:eE:p:P:d:w:t:g:b:VSh?f:o:s:D:")) != -1) {
 		switch (opt) {
 		case 'v':
 			verbose = 2;
@@ -148,6 +146,9 @@ main(int argc, char **argv)
 			addrtype = 48;
 			privtype = 176;
 			break;
+		case 'Z':
+			addrtype = 80;
+			privtype = 224;
 		case 'N':
 			addrtype = 52;
 			privtype = 180;
